@@ -221,9 +221,9 @@ export default function LandingPage(props) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid sm item className={classes.animation}>
+          {/* <Grid sm item className={classes.animation}>
             <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
       <Grid item>
