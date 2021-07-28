@@ -16,7 +16,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 
 import ButtonArrow from "../src/ui/ButtonArrow";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   background: {
     backgroundImage: `url("/assets/background.jpg")`,
     backgroundPosition: "center",
@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
     height: "60em",
     paddingBottom: "10em",
     [theme.breakpoints.down("md")]: {
-      backgroundImage: `url("/assets/mobileBackground.jpg")`
-    }
+      backgroundImage: `url("/assets/mobileBackground.jpg")`,
+    },
   },
   estimateButton: {
     ...theme.typography.estimate,
@@ -38,12 +38,12 @@ const useStyles = makeStyles(theme => ({
     marginRight: "5em",
     marginLeft: "2em",
     "&:hover": {
-      backgroundColor: theme.palette.secondary.light
+      backgroundColor: theme.palette.secondary.light,
     },
     [theme.breakpoints.down("md")]: {
       marginLeft: 0,
-      marginRight: 0
-    }
+      marginRight: 0,
+    },
   },
   learnButton: {
     ...theme.typography.learnButton,
@@ -51,13 +51,13 @@ const useStyles = makeStyles(theme => ({
     height: 35,
     padding: 5,
     [theme.breakpoints.down("md")]: {
-      marginBottom: "2em"
-    }
+      marginBottom: "2em",
+    },
   },
   message: {
     border: `2px solid ${theme.palette.common.blue}`,
     marginTop: "5em",
-    borderRadius: 5
+    borderRadius: 5,
   },
   sendButton: {
     ...theme.typography.estimate,
@@ -67,13 +67,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1rem",
     backgroundColor: theme.palette.common.orange,
     "&:hover": {
-      backgroundColor: theme.palette.secondary.light
+      backgroundColor: theme.palette.secondary.light,
     },
     [theme.breakpoints.down("sm")]: {
       height: 40,
-      width: 225
-    }
-  }
+      width: 225,
+    },
+  },
 }));
 
 export default function Contact(props) {
@@ -100,10 +100,10 @@ export default function Contact(props) {
   const [alert, setAlert] = useState({
     open: false,
     message: "",
-    backgroundColor: ""
+    backgroundColor: "",
   });
 
-  const onChange = event => {
+  const onChange = (event) => {
     let valid;
 
     switch (event.target.id) {
@@ -140,7 +140,7 @@ export default function Contact(props) {
     setLoading(true);
     ReactGA.event({
       category: "Message",
-      action: "Sent Message"
+      action: "Sent Message",
     });
 
     axios
@@ -151,11 +151,11 @@ export default function Contact(props) {
             name: name,
             email: email,
             phone: phone,
-            message: message
-          }
+            message: message,
+          },
         }
       )
-      .then(res => {
+      .then((res) => {
         setLoading(false);
         setOpen(false);
         setName("");
@@ -165,15 +165,15 @@ export default function Contact(props) {
         setAlert({
           open: true,
           message: "Message sent successfully!",
-          backgroundColor: "#4BB543"
+          backgroundColor: "#4BB543",
         });
       })
-      .catch(err => {
+      .catch((err) => {
         setLoading(false);
         setAlert({
           open: true,
           message: "Something went wrong, please try again!",
-          backgroundColor: "#FF3232"
+          backgroundColor: "#FF3232",
         });
       });
   };
@@ -218,7 +218,7 @@ export default function Contact(props) {
         alignItems="center"
         style={{
           marginBottom: matchesMD ? "5em" : 0,
-          marginTop: matchesSM ? "1em" : matchesMD ? "5em" : 0
+          marginTop: matchesSM ? "1em" : matchesMD ? "5em" : 0,
         }}
         lg={4}
         xl={3}
@@ -255,10 +255,10 @@ export default function Contact(props) {
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
                   <a
-                    href="tel:5555555555"
+                    href="tel:+905316222630"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    (555) 555-5555
+                    (+90) 5316222630
                   </a>
                 </Typography>
               </Grid>
@@ -277,10 +277,10 @@ export default function Contact(props) {
                   style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
                   <a
-                    href="mailto:zachary@gmail.com"
+                    href="mailto:sahinhorany@gmail.com"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    zachary@gmail.com
+                    sahinhorany@gmail.com
                   </a>
                 </Typography>
               </Grid>
@@ -292,7 +292,7 @@ export default function Contact(props) {
                   id="name"
                   fullWidth
                   value={name}
-                  onChange={event => setName(event.target.value)}
+                  onChange={(event) => setName(event.target.value)}
                 />
               </Grid>
               <Grid item style={{ marginBottom: "0.5em" }}>
@@ -328,10 +328,15 @@ export default function Contact(props) {
                 fullWidth
                 rows={10}
                 id="message"
-                onChange={event => setMessage(event.target.value)}
+                onChange={(event) => setMessage(event.target.value)}
               />
             </Grid>
-            <Grid item container justifyContent="center" style={{ marginTop: "2em" }}>
+            <Grid
+              item
+              container
+              justifyContent="center"
+              style={{ marginTop: "2em" }}
+            >
               <Button
                 disabled={
                   name.length === 0 ||
@@ -363,18 +368,18 @@ export default function Contact(props) {
             paddingLeft: matchesXS
               ? 0
               : matchesSM
-                ? "5em"
-                : matchesMD
-                  ? "15em"
-                  : "25em",
+              ? "5em"
+              : matchesMD
+              ? "15em"
+              : "25em",
             paddingRight: matchesXS
               ? 0
               : matchesSM
-                ? "5em"
-                : matchesMD
-                  ? "15em"
-                  : "25em"
-          }
+              ? "5em"
+              : matchesMD
+              ? "15em"
+              : "25em",
+          },
         }}
       >
         <DialogContent>
@@ -390,7 +395,7 @@ export default function Contact(props) {
                 id="name"
                 fullWidth
                 value={name}
-                onChange={event => setName(event.target.value)}
+                onChange={(event) => setName(event.target.value)}
               />
             </Grid>
             <Grid item style={{ marginBottom: "0.5em" }}>
@@ -425,7 +430,7 @@ export default function Contact(props) {
               fullWidth
               rows={10}
               id="message"
-              onChange={event => setMessage(event.target.value)}
+              onChange={(event) => setMessage(event.target.value)}
             />
           </Grid>
           <Grid
@@ -486,7 +491,7 @@ export default function Contact(props) {
           item
           style={{
             marginLeft: matchesMD ? 0 : "3em",
-            textAlign: matchesMD ? "center" : "inherit"
+            textAlign: matchesMD ? "center" : "inherit",
           }}
         >
           <Grid container direction="column">
@@ -503,7 +508,11 @@ export default function Contact(props) {
               >
                 Take advantage of the 21st Century.
               </Typography>
-              <Grid container justifyContent={matchesMD ? "center" : undefined} item>
+              <Grid
+                container
+                justifyContent={matchesMD ? "center" : undefined}
+                item
+              >
                 <Button
                   component={Link}
                   href="/revolution"
@@ -532,7 +541,7 @@ export default function Contact(props) {
               props.setValue(5);
               ReactGA.event({
                 category: "Estimate",
-                action: "Contact Page Pressed"
+                action: "Contact Page Pressed",
               });
             }}
           >
