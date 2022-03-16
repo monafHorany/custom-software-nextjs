@@ -227,7 +227,7 @@ export default function Header(props) {
       mouseOver: (event) => handleClick(event),
     },
     { name: "The Revolution", link: "/revolution", activeIndex: 2 },
-    { name: "About Us", link: "/about", activeIndex: 3 },
+    // { name: "About Us", link: "/about", activeIndex: 3 },
     { name: "Contact Us", link: "/contact", activeIndex: 4 },
   ];
 
